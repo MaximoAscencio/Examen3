@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+_tmp_*/
+*.tmp
+resultados/entrada_externa.txt
+resultados/salida_externa.txt
+resultados/_pruebas/
+.venv/
