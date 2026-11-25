@@ -8,6 +8,7 @@ algoritmos propios (internos y externos), busca valores y exporta los resultados
 
 - Python 3.9 o superior
 - La librería `openpyxl` (para leer y escribir XLSX)
+- La librería `customtkinter` (solo para la interfaz gráfica de ventana)
 
 ```
 pip install -r requirements.txt
@@ -17,6 +18,14 @@ pip install -r requirements.txt
 
 Desde la carpeta del proyecto:
 
+Interfaz gráfica (ventana):
+
+```
+python -m frontend.app
+```
+
+Interfaz de consola:
+
 ```
 python main.py
 ```
@@ -24,7 +33,8 @@ python main.py
 Para correr las pruebas automáticas:
 
 ```
-python pruebas.py
+python pruebas.py             # lógica (backend y librerías)
+python pruebas_frontend.py    # interfaz gráfica (necesita pantalla)
 ```
 
 ## Menú del programa
@@ -44,12 +54,14 @@ Los archivos exportados se guardan en la carpeta `resultados/`.
 
 ```
 main.py                      Interfaz de consola (solo pide datos y muestra resultados)
+frontend/                    Interfaz gráfica de ventana (customtkinter); se abre con: python -m frontend.app
 backend.py                   Lógica del sistema: lo que usa cualquier interfaz (consola, ventana...)
 archivos.py                  Lectura y escritura de TXT y XLSX
 ordenamientos_internos.py    Librería: burbuja, selección, inserción, shell, quick, heap, radix
 ordenamientos_externos.py    Librería: mezcla directa, mezcla equilibrada natural, intercalación
 busquedas.py                 Librería: secuencial, binaria y tabla hash propia
-pruebas.py                   Pruebas automáticas
+pruebas.py                   Pruebas automáticas de la lógica
+pruebas_frontend.py          Pruebas automáticas de la interfaz gráfica
 datos/                       dataset_1000_duplicados.txt, dataset_5000_duplicados.xlsx
 resultados/                  Archivos exportados
 ```
@@ -61,7 +73,7 @@ El programa está separado en dos capas:
 - **Backend** (`backend.py` y las librerías): toda la lógica. Sin `input()` ni `print()`:
   las funciones reciben datos, regresan resultados y, si algo falla, lanzan una excepción
   con un mensaje en español listo para mostrarse.
-- **Frontend** (`main.py` para consola, o cualquier ventana): solo pide datos al usuario
+- **Frontend** (`main.py` para consola o `frontend/` para la ventana): solo pide datos al usuario
   y muestra lo que el backend regresa.
 
 La forma más fácil de usar el backend desde una interfaz es la clase `Sesion`:
