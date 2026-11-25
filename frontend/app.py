@@ -20,7 +20,7 @@ from backend import Sesion
 from frontend.components.cards import Toast
 from frontend.components.header import Header
 from frontend.components.sidebar import Sidebar
-from frontend.config import (ANCHO_SIDEBAR, COLORES, PAD, SECCIONES, VENTANA_ALTO,
+from frontend.config import (COLORES, PAD, SECCIONES, VENTANA_ALTO,
                              VENTANA_ANCHO, VENTANA_MIN_ALTO, VENTANA_MIN_ANCHO, fuente)
 from frontend.views.buscar import BuscarView
 from frontend.views.cargar_archivo import CargarArchivoView

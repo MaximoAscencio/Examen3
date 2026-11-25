@@ -93,7 +93,7 @@ varios algoritmos seguidos y comparar sus tiempos.
 ## Librerías propias
 
 Los algoritmos son los desarrollados por el equipo en tareas anteriores
-(`Ordenamiento/`, `ordenamientos1_anaya/`, `ADA3 - MetOrdenaExt/`, `ADA4_Busqueda/`),
+(`Ordenamiento/`, `ordenamientos1_anaya/`, `ADA3 - MetOrdenaExt/`),
 reunidos en librerías con una interfaz común:
 
 ```python

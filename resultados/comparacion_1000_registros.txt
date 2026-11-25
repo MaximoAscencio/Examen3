@@ -1,0 +1,14 @@
+Comparación con 1000 registros (dataset_1000_duplicados.txt)
+Tipo     Algoritmo                        Tiempo (s)  Correcto
+--------------------------------------------------------------
+interno  Burbuja (Bubble Sort)              0.044457  sí
+interno  Selección (Selection Sort)         0.017358  sí
+interno  Inserción (Insertion Sort)         0.021255  sí
+interno  Shell Sort                         0.001389  sí
+interno  Quick Sort                         0.001004  sí
+interno  Heap Sort                          0.001949  sí
+interno  Radix Sort                         0.000658  sí
+externo  Mezcla directa                     0.044757  sí
+externo  Mezcla equilibrada natural         0.034607  sí
+--------------------------------------------------------------
+Más rápido: Radix Sort (0.000658 s)

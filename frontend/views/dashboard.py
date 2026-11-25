@@ -1,6 +1,4 @@
 """Pantalla de inicio: resumen de la sesión y accesos rápidos."""
-import customtkinter as ctk
-
 from frontend.components.cards import StatCard, boton, etiqueta, panel
 from frontend.config import COLORES
 from frontend.views import VistaBase

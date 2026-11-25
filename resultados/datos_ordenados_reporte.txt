@@ -1,0 +1,10 @@
+REPORTE DE ORDENAMIENTO
+=======================
+Fecha: 2026-11-24 20:00:14
+Archivo de origen: dataset_1000_duplicados.txt
+Total de registros: 1000
+Algoritmo utilizado: Quick Sort
+Tipo: interno
+Orden: ascendente
+Tiempo de ejecución: 0.000928 s (0.928 ms)
+Archivo ordenado: datos_ordenados.txt

@@ -2,7 +2,6 @@
 import customtkinter as ctk
 
 from frontend.components.cards import Banner, Tabla, etiqueta, panel
-from frontend.config import COLORES
 from frontend.views import VistaBase
 
 CANTIDAD = 20
