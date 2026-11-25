@@ -11,6 +11,7 @@ Comprueba, con los dos datasets del examen y con casos límite, que:
 """
 
 import os
+import time
 
 import archivos
 import backend
@@ -291,6 +292,19 @@ def probar_codigo_prohibido():
             comprobar(f"{modulo} no debe usar {patron}", patron not in texto)
 
 
+def _reintentar(accion, ruta, intentos=10, espera=0.3):
+    """En Windows/OneDrive una carpeta puede quedar bloqueada un instante."""
+    for i in range(intentos):
+        try:
+            accion(ruta)
+            return
+        except PermissionError:
+            if i == intentos - 1:
+                print(f"AVISO: no se pudo borrar {ruta} (en uso). Bórralo a mano.")
+                return
+            time.sleep(espera)
+
+
 def limpiar():
     """Borra los archivos que generan las pruebas en resultados/."""
     carpeta = os.path.dirname(PRUEBAS)
@@ -298,16 +312,16 @@ def limpiar():
         return
     if os.path.isdir(PRUEBAS):
         for nombre in os.listdir(PRUEBAS):
-            os.remove(os.path.join(PRUEBAS, nombre))
-        os.rmdir(PRUEBAS)
+            _reintentar(os.remove, os.path.join(PRUEBAS, nombre))
+        _reintentar(os.rmdir, PRUEBAS)
     for nombre in os.listdir(carpeta):
         generado = (nombre.startswith("_prueba_")
                     or nombre in ("entrada_externa.txt", "salida_externa.txt",
                                   "comparacion_1000_registros.txt"))
         if generado and os.path.isfile(os.path.join(carpeta, nombre)):
-            os.remove(os.path.join(carpeta, nombre))
+            _reintentar(os.remove, os.path.join(carpeta, nombre))
     if not os.listdir(carpeta):
-        os.rmdir(carpeta)
+        _reintentar(os.rmdir, carpeta)
 
 
 def main():
